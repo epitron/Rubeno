@@ -1,0 +1,38 @@
+alias kromnomo, sinonimo, alinomo
+and kaj
+begin
+BEGIN
+break
+case 
+class
+def difinu
+defined
+do faru, starto
+else alie
+elsif alie_se
+END
+end fino
+ensure
+false ne, malveras, malvero
+for por
+if se
+in 
+module modulo
+next
+nil senvalora, nedifinita, ne_ekzistas
+not ne_estas
+or aux
+redo
+rescue
+retry
+return liveru
+self
+super
+then
+true jes, veras, vero
+undef
+unless 
+until gxis
+when
+while dum
+yield

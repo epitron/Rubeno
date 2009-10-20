@@ -1,0 +1,6 @@
+gets enigu
+print printu
+puts vidigu
+times foje
+to_i entjerigu 
+to_s chenigu

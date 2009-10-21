@@ -9,7 +9,8 @@ join kunigu
 last lasta
 length longo
 ljust maldekstremigu
-new nova, kreu
+new nova
+new kreu
 open malfermu
 pop ellasu
 print printu

@@ -1,6 +1,4 @@
-﻿alias kromnomo
-alias sinonimo
-alias alinomo
+﻿alias sinonimo
 and kaj
 begin
 BEGIN

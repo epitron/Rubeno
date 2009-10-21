@@ -1,0 +1,54 @@
+require 'pp'
+
+class Class
+  def self.my_methods
+    not_my_methods = class.ancestors.map { |klass| klass.methods }
+    methods - not_my_methods    
+  end
+  def self.my_instance_methods
+    not_my_methods = class.ancestors.map { |klass| klass.instance_methods }
+    methods - not_my_methods    
+  end
+end
+
+module Rubeno
+
+  methods = Hash.new{ |h, k| h[k] = [] }
+  class_methods = Hash.new{ |h, k| h[k] = [] }
+  
+  for const in Object.constants
+    mod = Object.const_get const
+    next unless mod.is_a? Class
+    
+    for meth in mod.instance_methods
+      methods[meth] << mod
+    end
+    for meth in mod.methods
+      class_methods[meth] << mod
+    end
+    
+  end
+  
+  pp [:methods, methods]
+  pp [:class_methods, class_methods]
+  exit 1
+  
+  for line in open("metodoj.txt")
+    eng, esp = line.split(" ")
+    alias_method metodoj.pop.to_sym, metodoj.pop.to_sym
+  end
+    
+  
+  class Object #ditto for String, Array, etc.
+    alias foo bar
+    #loop through every method of the class
+    #check if each one is in the translation hash
+    # ObjectSpace.each_object(Module) {|mod| mod.class_eval { ... } }
+    instance_methods.each{|id| alias_method trans[id], id if trans.key? id }
+  end
+
+end  
+  
+include Rubeno
+vidigu "Saluton, mondo!"
+

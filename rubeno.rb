@@ -1,10 +1,21 @@
 require 'pp'
 
+class Object
   
+  # the class on which class methods are defined
+  #def self.metaclass; class << self; self; end; end
+  def metaclass; class << self; self; end; end
+  
+  def alias_class_method(to, from)
+    metaclass.send(:alias_method, to, from)
+  end
+  
+end  
+
+
 module Rubeno
+  
   def self.translate_object(obj, meths, table)
-    p [obj, obj.class]
-    
     for meth in meths
       if esps = table[meth]
         for esp in esps
@@ -29,34 +40,32 @@ module Rubeno
       
     end
   
-    for const in Object.constants
+    all_constants = Object.constants.map{|x|x.to_sym} - [:Kernel]
+    p all_constants
+    
+    for const in all_constants
       obj = Object.const_get const
       next unless obj.is_a? Class
       
-      translate_object(obj, obj.methods, table) do ||
-      end
+      # class methods
+      translate_object(obj.metaclass, obj.methods(false), table)
       
-      translate_object(obj, obj.instance_methods, table) do ||
-      end
+      # instance methods
+      translate_object(obj, obj.instance_methods(false), table)
     end
-    
-    exit 1
+
+    # private kernel instance methods
+    translate_object(Kernel, Kernel.private_instance_methods(false), table)
   end    
     
-=begin
-  class Object #ditto for String, Array, etc.
-    alias foo bar
-    #loop through every method of the class
-    #check if each one is in the translation hash
-    # ObjectSpace.each_object(Module) {|mod| mod.class_eval { ... } }
-    instance_methods.each{|id| alias_method trans[id], id if trans.key? id }
-  end
-=end
 
 end  
   
-#include Rubeno
-Rubeno.translate!
 
-vidigu "Saluton, mondo!"
-
+if $0 == __FILE__
+  #include Rubeno
+  Rubeno.translate!
+  
+  vidigu "Saluton, mondo!"
+  p "asdfasdfsd".longo
+end

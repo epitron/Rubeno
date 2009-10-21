@@ -1,4 +1,4 @@
-abs absolutigu
+﻿abs absolutigu
 capitalize nomuskligu
 center centrigu
 chomp tondu
@@ -9,15 +9,18 @@ join kunigu
 last lasta
 length longo
 ljust maldekstremigu
+new nova, kreu
 open malfermu
 pop ellasu
 print printu
 puts vidigu
 read legu
-require sxargu, uzu
+require sxargu
+require uzu
 reverse inversigu
 rjust dekstremigu
 size grando
+split 
 swapcase maluskligu
 times foje
 to_f glitkomigu

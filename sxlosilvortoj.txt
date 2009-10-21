@@ -1,4 +1,6 @@
-alias kromnomo, sinonimo, alinomo
+﻿alias kromnomo
+alias sinonimo
+alias alinomo
 and kaj
 begin
 BEGIN
@@ -7,19 +9,19 @@ case
 class
 def difinu
 defined
-do faru, starto
+do faru
 else alie
 elsif alie_se
 END
 end fino
 ensure
-false ne, malveras, malvero
+false ne
 for por
 if se
 in 
 module modulo
 next
-nil senvalora, nedifinita, ne_ekzistas
+nil nul
 not ne_estas
 or aux
 redo
@@ -29,9 +31,9 @@ return liveru
 self
 super
 then
-true jes, veras, vero
+true jes
 undef
-unless 
+unless krom_se
 until gxis
 when
 while dum
